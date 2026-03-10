@@ -21,6 +21,7 @@ body{
     display:flex;
     justify-content:center;
     padding:50px 20px 30px;
+    position:relative;
 }
 
 .hero img{
@@ -36,12 +37,7 @@ body{
     transform:translateY(-10px) scale(1.015);
     box-shadow:0 0 95px rgba(255,210,120,1);
 }
-.hero{
-    display:flex;
-    justify-content:center;
-    padding:50px 20px 30px;
-    position:relative;
-}
+
 .hero::after{
     content:"CLICK TO VIEW WORKSHOPS";
     position:absolute;
@@ -137,7 +133,7 @@ body{
     backdrop-filter:blur(8px);
 
     overflow-y:auto;      /* allow vertical scrolling */
-    padding:60px 0;       /* space above and below modal */
+    padding:10px 0;       /* space above and below modal */
 }
 .modal-content{
     width:min(1100px, 92vw);
@@ -342,23 +338,147 @@ body{
     max-height:2000px;
 }
 
+
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
-    .hero {
-        padding: 20px 10px; /* Less empty space at the top */
-    }
-    
-    .hero img {
-        width: 95%; /* Makes the main image slightly larger on phones */
+
+    body{
+        overflow-x:hidden;
     }
 
-    .image-row {
-        gap: 40px; /* Reduces the gap between the stacked cards */
-        padding: 20px 15px 50px;
+    /* HERO */
+    .hero{
+        padding:16px 10px 10px;
     }
 
-    .title {
-        font-size: 18px; /* Shrinks the gold text so it fits on one or two lines nicely */
+    .hero img{
+        width:100%;
+        max-width:none;
+        border-radius:16px;
+        box-shadow:0 0 34px rgba(255,180,70,0.55);
+    }
+
+    .hero:hover img{
+        transform:none;
+        box-shadow:0 0 34px rgba(255,180,70,0.55);
+    }
+
+    .hero::after{
+        bottom:-2px;
+        font-size:11px;
+        line-height:1.25;
+        letter-spacing:1px;
+        width:100%;
+        text-align:center;
+    }
+
+    /* CARD ROW */
+    .image-row{
+        gap:24px;
+        padding:18px 12px 38px;
+    }
+
+    .card{
+        max-width:100%;
+    }
+
+    .card img{
+        border-radius:14px;
+        box-shadow:0 0 22px rgba(255,170,70,0.4);
+    }
+
+    .title{
+        margin-top:14px;
+        font-size:15px;
+        line-height:1.25;
+        letter-spacing:1px;
+    }
+
+    /* MODAL */
+    .modal{
+        padding:14px 0 20px;
+    }
+
+    .modal-content{
+        width:94vw;
+        margin:18px auto;
+        border-radius:18px;
+    }
+
+    .close{
+        font-size:26px;
+        padding:8px 12px 0 0;
+    }
+
+    /* top intro text */
+    .modal .title[style]{
+        font-size:26px !important;
+        margin-bottom:8px !important;
+    }
+
+    .modal p[style]{
+        font-size:13px !important;
+        line-height:1.55 !important;
+        padding:0 10px;
+    }
+
+    .gold-divider{
+        margin:18px 0 22px;
+    }
+
+    /* workshop rows */
+    .workshop-trigger{
+        padding:14px 10px 14px 8px;
+        gap:10px;
+        grid-template-columns:10px 1fr 20px;
+    }
+
+    .workshop-accent{
+        min-height:58px;
+        width:3px;
+    }
+
+    .workshop-title{
+        font-size:16px;
+        line-height:1.2;
+        letter-spacing:0.5px;
+    }
+
+    .workshop-summary{
+        font-size:13px;
+        line-height:1.6;
+        margin-top:4px;
+    }
+
+    .chevron{
+        width:14px;
+        height:14px;
+        margin-top:8px;
+    }
+
+    .workshop-details{
+        padding:0 12px 16px 22px;
+    }
+
+    .workshop-details p{
+        font-size:13px;
+        line-height:1.7;
+        margin-bottom:8px;
+    }
+
+    .workshop-details ul{
+        padding-left:18px;
+        margin:8px 0 14px;
+    }
+
+    .workshop-details li{
+        font-size:13px;
+        line-height:1.7;
+        margin:6px 0;
+    }
+
+    .workshop-details b{
+        letter-spacing:0.3px;
     }
 }
     
