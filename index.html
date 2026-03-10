@@ -88,7 +88,26 @@ body{
         0 2px 4px rgba(0,0,0,0.8),
         0 0 10px rgba(255,200,80,0.6);
 }
+/* --- MOBILE RESPONSIVE FIXES --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 20px 10px; /* Less empty space at the top */
+    }
+    
+    .hero img {
+        width: 95%; /* Makes the main image slightly larger on phones */
+    }
 
+    .image-row {
+        gap: 40px; /* Reduces the gap between the stacked cards */
+        padding: 20px 15px 50px;
+    }
+
+    .title {
+        font-size: 18px; /* Shrinks the gold text so it fits on one or two lines nicely */
+    }
+}
+    
 </style>
 </head>
 
@@ -120,4 +139,5 @@ body{
 </body>
 
 </html>
+
 
