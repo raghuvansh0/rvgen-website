@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Website</title>
+
+<!-- GOLD MOVIE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+
+/* HERO IMAGE */
+.hero{
+    display:flex;
+    justify-content:center;
+    padding:50px 20px 30px;
+}
+
+.hero img{
+    width:85%;
+    max-width:1300px;
+    border-radius:20px;
+    box-shadow:0 0 60px rgba(255,180,70,0.9);
+}
+
+/* ROW */
+.image-row{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    padding:40px 20px 80px;
+    flex-wrap:wrap;
+}
+
+/* CARD LINK */
+.card{
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* IMAGE */
+.card img{
+    width:380px;
+    border-radius:18px;
+    box-shadow:0 0 35px rgba(255,170,70,0.6);
+    transition:all 0.35s ease;
+}
+
+.card:hover img{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 0 80px rgba(255,200,100,1);
+}
+
+/* GOLD TITLE */
+.title{
+    margin-top:20px;
+    font-size:26px;
+    letter-spacing:2px;
+    font-family:'Cinzel', serif;
+    font-weight:700;
+
+    /* GOLD METAL GRADIENT */
+    background:linear-gradient(
+        180deg,
+        #fff6c5 0%,
+        #ffd86b 20%,
+        #ffbf00 45%,
+        #e09a00 65%,
+        #fff0a0 85%,
+        #c17d00 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.8),
+        0 0 10px rgba(255,200,80,0.6);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <img src="./assets/Main-Image-8k.png" alt="Main Image">
+</div>
+
+<div class="image-row">
+
+    <a class="card" href="https://youtu.be/C69d_EK6Nco" target="_blank">
+        <img src="./assets/Rahid-Button.png" alt="Rahid">
+        <div class="title">RAHID - THE SEEKER OF DUNE </div>
+    </a>
+
+    <a class="card" href="https://youtu.be/3xpkLg5UaEQ" target="_blank">
+        <img src="./assets/RamdevJi-Button.png" alt="Ramdev Ji">
+        <div class="title">RAMDEV JI</div>
+    </a>
+
+    <a class="card" href="https://youtu.be/eWkvoEkZDBM" target="_blank">
+        <img src="./assets/Wheelchair-Button.png" alt="Secret of the Wheelchair">
+        <div class="title"> THE SECRET LIFE OF THE WHEELCHAIR</div>
+    </a>
+
+</div>
+
+</body>
+</html>
