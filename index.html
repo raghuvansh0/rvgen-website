@@ -6,14 +6,13 @@
 <title>RVGEN.AI</title>
 
 <!-- GOLD MOVIE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
 body{
     margin:0;
     background:black;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Manrope', sans-serif;
     text-align:center;
 }
 
@@ -29,8 +28,42 @@ body{
     max-width:1300px;
     border-radius:20px;
     box-shadow:0 0 60px rgba(255,180,70,0.9);
+    cursor: pointer;
+    animation:pulseGlow 3s infinite alternate;
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+.hero:hover img{
+    transform:translateY(-10px) scale(1.015);
+    box-shadow:0 0 95px rgba(255,210,120,1);
+}
+.hero{
+    display:flex;
+    justify-content:center;
+    padding:50px 20px 30px;
+    position:relative;
+}
+.hero::after{
+    content:"CLICK TO VIEW WORKSHOPS";
+    position:absolute;
+    bottom:8px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Cinzel', serif;
+    font-size:15px;
+    letter-spacing:2px;
+    color:#d8b56a;
+    text-shadow:0 0 10px rgba(255,191,0,0.25);
+    opacity:0.95;
 }
 
+@keyframes pulseGlow{
+    from{
+        box-shadow:0 0 50px rgba(255,170,70,0.7);
+    }
+    to{
+        box-shadow:0 0 90px rgba(255,210,120,1);
+    }
+}
 /* ROW */
 .image-row{
     display:flex;
@@ -89,6 +122,226 @@ body{
         0 2px 4px rgba(0,0,0,0.8),
         0 0 10px rgba(255,200,80,0.6);
 }
+
+/* --- MODAL (POPUP) STYLING --- */
+.modal {
+    display:none;
+    position:fixed;
+    z-index:100;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+
+    background-color:rgba(0,0,0,0.85);
+    backdrop-filter:blur(8px);
+
+    overflow-y:auto;      /* allow vertical scrolling */
+    padding:60px 0;       /* space above and below modal */
+}
+.modal-content{
+    width:min(1100px, 92vw);
+    margin: 60px auto;
+    border-radius:22px;
+    position:relative;
+    color:#ddd2c3;
+    text-align:left;
+    border:1px solid rgba(255,191,0,.45);
+    box-shadow:
+        0 0 0 1px rgba(255,212,120,.10) inset,
+        0 0 35px rgba(255,174,48,.20),
+        0 0 80px rgba(255,174,48,.12);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,205,90,.16), transparent 28%),
+        radial-gradient(circle at 15% 20%, rgba(255,160,50,.10), transparent 18%),
+        radial-gradient(circle at 85% 30%, rgba(255,160,50,.08), transparent 16%),
+        linear-gradient(180deg, rgba(23,14,8,.96), rgba(7,5,4,.98));
+}
+.modal-inner{
+    margin:16px;
+    padding:28px 28px 26px;
+    border-radius:16px;
+    border:1px solid rgba(255,196,84,.45);
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255,176,68,.08), transparent 48%),
+        linear-gradient(180deg, rgba(15,10,8,.86), rgba(6,5,4,.94));
+    box-shadow: inset 0 0 40px rgba(255,157,50,.05);
+}
+
+.modal h2{
+    margin:4px 0 14px;
+    text-align:center;
+    font-family:'Cinzel', serif;
+    font-size:64px;
+    line-height:1;
+    letter-spacing:1px;
+    background:linear-gradient(180deg, #fff4bf 0%, #f6d36a 28%, #ffbf00 55%, #c78600 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 24px rgba(255,180,40,.18);
+}
+
+.modal-intro{
+    max-width:980px;
+    margin:0 auto;
+    text-align:center;
+    font-size:19px;
+    line-height:1.75;
+    color:#ddd2c3;
+}
+
+.modal-divider{
+    height:1px;
+    border:none;
+    margin:22px 0 18px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,182,45,.60) 16%,
+        rgba(255,218,132,.95) 50%,
+        rgba(255,182,45,.60) 84%,
+        transparent
+    );
+    box-shadow:0 0 18px rgba(255,191,0,.30);
+}
+
+.close {
+    color: #c8963e; /* Muted gold to match border */
+    float: right;
+    font-size: 32px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #c8963e;
+}
+
+/* New: Fading gold separator line */
+.gold-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(200,150,60,0), rgba(200,150,60,0.6), rgba(200,150,60,0));
+    margin: 25px 0 35px 0;
+}
+
+.workshop-item{
+    border-top:1px solid rgba(255,191,0,.22);
+}
+
+.workshop-item:last-of-type{
+    border-bottom:1px solid rgba(255,191,0,.22);
+}
+
+.workshop-trigger{
+    width:100%;
+    border:none;
+    background:transparent;
+    color:inherit;
+    text-align:left;
+    padding:18px 20px 16px 22px;
+    display:grid;
+    grid-template-columns:14px 1fr 30px;
+    gap:18px;
+    align-items:start;
+    cursor:pointer;
+}
+
+.workshop-accent{
+    width:4px;
+    min-height:72px;
+    border-radius:999px;
+    background:linear-gradient(180deg, #ffd86b, #ffbf00 58%, #9b6500);
+    box-shadow:0 0 10px rgba(255,191,0,.45);
+    margin-top:4px;
+}
+
+.workshop-title{
+    margin:0 0 8px;
+    font-family:'Cinzel', serif;
+    font-size:28px;
+    color:#f4cd69;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.workshop-summary{
+    font-family:'Manrope', sans-serif;
+    margin:0;
+    font-size:15px;
+    line-height:1.75;
+    color:#d6cec2;
+    font-weight:400;
+    letter-spacing:0.1px;
+}
+
+.chevron{
+    width:22px;
+    height:22px;
+    border-right:2px solid #ffc931;
+    border-bottom:2px solid #ffc931;
+    transform:rotate(45deg) translateY(4px);
+    transition:transform .25s ease;
+    justify-self:end;
+    margin-top:10px;
+}
+
+.workshop-item.open .chevron{
+    transform:rotate(-135deg) translateX(-2px);
+}
+
+.workshop-details{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+    padding:0 20px 20px 54px;
+}
+
+.workshop-item.open .workshop-details{
+    display:block;
+}
+
+.workshop-details p{
+    font-family:'Manrope', sans-serif;
+    font-size:16px;
+    line-height:1.9;
+    color:#d7cfc2;
+    letter-spacing:0.1px;
+    font-weight:400;
+}
+
+.workshop-details li{
+    font-family:'Manrope', sans-serif;
+    font-size:15px;
+    line-height:1.85;
+    color:#cfc7bb;
+    margin:7px 0;
+    font-weight:400;
+}
+
+.workshop-details ul{
+    padding-left:22px;
+    margin:10px 0 0;
+}
+
+
+.workshop-details b{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    color:#e3c27a;
+    letter-spacing:.6px;
+}
+
+.workshop-details li::marker{
+    color:#d2a14a;
+}
+
+.workshop-item.open .workshop-details{
+    max-height:2000px;
+}
+
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
     .hero {
@@ -115,8 +368,8 @@ body{
 
 <body>
 
-<div class="hero">
-    <img src="./assets/Main-Image-8k.png" alt="Main Image">
+<div class="hero" onclick="openModal()" style="cursor: pointer;">
+    <img src="./assets/Main-Image-8k.png" alt="Main Image" title="Click to view Workshops & Info">
 </div>
 
 <div class="image-row">
@@ -137,6 +390,222 @@ body{
     </a>
 
 </div>
+
+<!-- THE MODAL POPUP HTML -->
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        
+        <div class="title" style="margin-top:0; margin-bottom: 10px; font-size: 32px; text-align: center;">RVGEN.AI</div>
+        <p style="color: #a9a297; font-size: 15px; line-height: 1.6; text-align: center; margin-bottom: 15px;">
+            Empowering the next generation of creators, thinkers, and entrepreneurs. We bridge the gap between imagination and reality using cutting-edge Artificial Intelligence.
+        </p>
+
+        <!-- ADD THIS NEW LINE HERE -->
+        <hr class="gold-divider">
+
+        <div class="workshop-item">
+             <button class="workshop-trigger" type="button" onclick="toggleWorkshop(this)">
+                <span class="workshop-accent"></span>
+                <div>
+                        <h3 class="workshop-title">AI FILMMAKING & ANIMATION MASTERCLASS</h3>
+                        <p class="workshop-summary">
+                            Transforming ideas into cinematic animation shorts / reels / series / visual content.
+                        </p>
+                </div>
+                <span class="chevron"></span>
+             </button>
+                                    
+                <div class="workshop-details">
+
+                    <p><b>MODULE 1: FOUNDATIONS</b><br>
+                    Transforming ideas into cinematic animation shorts / reels / series / visual content.</p>
+
+                    <ul>
+                    <li>Session 1: Vision & Narrative Design – Concept development and finalizing your story arc.</li>
+                    <li>Session 2: AI-Assisted Screenwriting – Drafting professional scripts with advanced AI logic.</li>
+                    <li>Session 3: The Art of Prompt Engineering – Learning the language of generative AI art.</li>
+                    <li>Session 4: Production Blueprinting – Creating a comprehensive Final Prompt Sheet for visual consistency.</li>
+                    <li>Session 5: Resource & Cloud Management – Mastering credit allocation and AI tool efficiency.</li>
+                    <li>Session 6: Cinematic World Building – High-fidelity image generation for sets and characters.</li>
+                    <li>Session 7: Motion Synthesis – Transforming static frames into fluid high-definition video.</li>
+                    <li>Session 8: Audio Architecture – Introduction to AI soundscapes and foley effects.</li>
+                    <li>Session 9: Director’s Cut – Final assembly and editing of your first 2-minute short film.</li>
+                    </ul>
+
+                    <p><b>MODULE 2: TECHNICAL DEPTH & STUDIO EXPERIENCE</b><br>
+                    Advanced techniques for professional-grade output.</p>
+
+                    <ul>
+                    <li>Session 10: Dynamic Soundtracks – AI voiceovers, scoring, and musical layers.</li>
+                    <li>Session 11-12: Digital Performance & Facial Sync – Mastering lip-sync and AI performance capture.</li>
+                    <li>Session 13: Atmospheric Lighting & Color Theory – Film grading for mood and realism.</li>
+                    <li>Session 14: AI Virtual Cinematography – Camera angles, pans and zooms using AI tools.</li>
+                    <li>Session 15: Post-Production Mastery – Advanced VFX, transitions and final polish.</li>
+                    <li>The Studio Residency (5 Sessions): Students collaborate on a live AI feature film production.</li>
+                    <li><b>Final Output:</b> Launch your own short series, marketing campaign, or film premiere.</li>
+                    </ul>
+
+                    <p><b>MODULE 3: UNREAL ENGINE & DIGITAL AVATARS</b></p>
+
+                    <ul>
+                    <li>Session 21: MetaHuman Creation – Design your own digital character using 3D tools.</li>
+                    <li>Session 22: AI-to-Motion Capture – Turn a webcam performance into 3D animation.</li>
+                    <li>Session 23: Virtual Set Design – Build cinematic worlds inside Unreal Engine.</li>
+                    <li>Session 24: Virtual Cinematography – Hollywood-style camera control inside Unreal.</li>
+                    <li>Session 25: Hybrid Rendering – Combine AI video layers with Unreal Engine environments.</li>
+                    <li><b>Advanced School Projects:</b> Present exhibitions and checkpoints inside a 3D world created by the students.</li>
+                    </ul>
+
+                </div>
+                </div>
+                
+
+    <div class="workshop-item">
+        <button class="workshop-trigger" type="button" onclick="toggleWorkshop(this)">
+        <span class="workshop-accent"></span>
+
+        <div>
+        <h3 class="workshop-title">THE STARTUP LAUNCHPAD</h3>
+
+        <p class="workshop-summary">
+        From problem to product: students design, build and launch real websites or apps using AI.
+        </p>
+        </div>
+
+        <span class="chevron"></span>
+        </button>
+
+        <div class="workshop-details">
+
+        <p><b>MODULE 1 — PRODUCT ARCHITECTURE & DESIGN</b><br>Master the art of User Experience and Visual Logic.</p>
+        <ul>
+            <li>Session 1: Identifying "Gaps" in the real world and brainstorming AI-driven solutions.</li>
+            <li>Session 2: Using AI to simulate user interaction with your app concept.</li>
+            <li>Session 3: Generating professional logos, color palettes, and brand guidelines using intelligent design systems.</li>
+            <li>Session 4: Create "Blueprint" of apps. Mapping out screens and navigation logic before building.</li>
+            <li>Session 5: Finalize aesthetic, interactive app mockups using generative design tools.</li>
+        </ul>
+
+        <p><b>MODULE 2 — WEB & MOBILE ENGINEERING</b><br>Building functional digital products.</p>
+
+        <ul>
+            <li>Session 6 &amp; 7: Fundamentals of HTML/CSS/JS &amp; Claude code to create the code for website.</li>
+            <li>Session 8: Deploying professional, responsive websites in minutes using AI-powered web engines.</li>
+            <li>Session 9, 10, 11: Learn Python basics and AI coding apps for advanced functionality and to connect spreadsheets and databases to your interface.</li>
+            <li>Session 12: Integrating advanced features: buttons, forms, search functions, and live data updates.</li>
+            <li>Session 13: Learning how to plug in an AI chatbot or image generator directly inside your own custom app.</li>
+        </ul>
+
+        <p><b>MODULE 3 — MARKET LAUNCH</b><br>Mastering the business of technology.</p>
+
+        <ul>
+            <li>Session 11: Create the Product Landing Page and learn about Kickstarter crowdfunding campaign.</li>
+            <li>Session 12: Creating social media campaigns, video ads, and posters using generative content engines.</li>
+            <li>Session 13: Create Pitch Deck, research market data and structure a professional presentation for investors.</li>
+            <li>Session 14: Quality Assurance &amp; User Testing </li>
+            <li>Session 15: The Grand Premiere (The Pitch) – Presenting your live app to a panel in a Shark Tank style event.</li>
+        </ul>
+            <p><b>THE ULTIMATE OUTCOME</b><br>
+             Students will exit this module as Full-Stack Creators. They will have a live, functional mobile app or website hosted on the internet, a professional brand identity, and a pitch-ready business plan.</p>
+
+            <p><b>ACADEMIC INTEGRATION (FOR PODAR INTERNATIONAL SCHOOL)</b><br>
+            Students can use this module to build the actual digital platform for their Grade 5/6 Exhibition. If their project is “Saving Oceans,” they don’t just talk about it — they launch an app that tracks local water pollution or helps people find recycling centers.</p>
+        </div>
+    </div>
+
+    <div class="workshop-item">
+        <button class="workshop-trigger" type="button" onclick="toggleWorkshop(this)">
+        <span class="workshop-accent"></span>
+
+        <div>
+        <h3 class="workshop-title">THE AI-READY STUDENT</h3>
+        <p class="workshop-summary">
+            This immersive workshop empowers Grade 5 & 6 students to transition from passive technology users to AI-powered creators and thinkers.
+        </p>
+        </div>
+        <span class="chevron"></span>
+        </button>
+
+        <div class="workshop-details">
+            
+            <p>
+            <b>50+ generative AI tools</b> 
+            </p>
+
+            <ul>
+
+            <li>
+            <b>🚀 Automated Presentation Architecture</b><br>
+            Learn the art of <i>Prompt-to-Presentation</i>. Students transform a single topic into a fully structured, professionally designed slide deck in seconds, focusing on visual storytelling instead of manual formatting.
+            </li>
+
+            <li>
+            <b>🧠 Smart-Study Engineering & Retrieval</b><br>
+            Convert any school chapter or handwritten note into interactive study tools. Students generate custom flashcards, practice mock tests, and active-recall quizzes for effective exam preparation.
+            </li>
+
+            <li>
+            <b>🔍 Advanced AI Research & Inquiry Protocols</b><br>
+            Develop elite research skills for school Checkpoints and Exhibitions. Students learn how to verify facts, summarize complex academic sources, cite correctly, and avoid AI misinformation.
+            </li>
+
+            <li>
+            <b>🎨 Generative Design & Infographic Logic</b><br>
+            Move beyond templates. Students use AI to generate high-impact diagrams, visual explanations, infographics, and exhibition posters that make school projects visually outstanding.
+            </li>
+
+            <li>
+            <b>📝 Draft Engineering & Structural Writing</b><br>
+            Use AI as a brainstorming partner. Students overcome writer's block, structure essays, refine vocabulary, and elevate the clarity and professionalism of their academic writing.
+            </li>
+
+            <li>
+            <b>🤝 Intelligent Project Mapping & Collaboration</b><br>
+            Master modern teamwork tools. Students build digital mind-maps, automate project timelines, and manage group assignments with professional-grade organization systems.
+            </li>
+
+            <li>
+            <b>⚙️ The Ethical AI Framework</b><br>
+            Students learn responsible AI usage through the <i>Human-in-the-Loop</i> philosophy—ensuring their own creativity and critical thinking guide AI tools rather than being replaced by them.
+            </li>
+
+            </ul>
+
+            </div>
+        </div>
+    </div>
+
+<!-- JAVASCRIPT TO OPEN AND CLOSE THE POPUP -->
+<script>
+    var modal = document.getElementById("infoModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Open the modal
+    function openModal() {
+        modal.style.display = "block";
+    }
+
+    // Close the modal when clicking the X
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicking outside of the box
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+function toggleWorkshop(button) {
+    const item = button.closest('.workshop-item');
+    item.classList.toggle('open');
+}
+</script>
+
 
 </body>
 </html>
