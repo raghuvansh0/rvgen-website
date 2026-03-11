@@ -29,7 +29,6 @@ body{
     max-width:1300px;
     border-radius:20px;
     box-shadow:0 0 60px rgba(255,180,70,0.9);
-    cursor: pointer;
     animation:pulseGlow 3s infinite alternate;
     transition:transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -152,16 +151,6 @@ body{
         radial-gradient(circle at 15% 20%, rgba(255,160,50,.10), transparent 18%),
         radial-gradient(circle at 85% 30%, rgba(255,160,50,.08), transparent 16%),
         linear-gradient(180deg, rgba(23,14,8,.96), rgba(7,5,4,.98));
-}
-.modal-inner{
-    margin:16px;
-    padding:28px 28px 26px;
-    border-radius:16px;
-    border:1px solid rgba(255,196,84,.45);
-    background:
-        radial-gradient(circle at 50% 50%, rgba(255,176,68,.08), transparent 48%),
-        linear-gradient(180deg, rgba(15,10,8,.86), rgba(6,5,4,.94));
-    box-shadow: inset 0 0 40px rgba(255,157,50,.05);
 }
 
 .modal h2{
@@ -339,6 +328,74 @@ body{
 }
 
 
+.profile-section{
+    width:min(1100px, 80%);
+    margin:40px auto 100px;
+    padding:40px 30px;
+    border-radius:18px;
+    border:1px solid rgba(255,191,0,0.45);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,205,90,.12), transparent 35%),
+        linear-gradient(180deg, rgba(20,12,6,.96), rgba(6,5,4,.98));
+    box-shadow:
+        0 0 40px rgba(255,170,70,.15),
+        inset 0 0 40px rgba(255,150,60,.05);
+    text-align:left;
+}
+
+.profile-title{
+    font-family:'Cinzel', serif;
+    font-size:32px;
+    margin-bottom:20px;
+    letter-spacing:1px;
+    background:linear-gradient(
+        180deg,
+        #fff6c5 0%,
+        #ffd86b 20%,
+        #ffbf00 45%,
+        #e09a00 65%,
+        #fff0a0 85%,
+        #c17d00 100%
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.8),
+        0 0 10px rgba(255,200,80,0.4);
+}
+
+.profile-text{
+    font-family:'Manrope', sans-serif;
+    color:#d6d6d6;
+    line-height:1.85;
+    font-size:16px;
+    font-weight:400;
+}
+
+.profile-block{
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,191,0,0.18);
+}
+
+.profile-block b{
+    font-family:'Cinzel', serif;
+    font-size:20px;
+    letter-spacing:1px;
+    background:linear-gradient(
+        180deg,
+        #fff6c5 0%,
+        #ffd86b 20%,
+        #ffbf00 45%,
+        #e09a00 65%,
+        #fff0a0 85%,
+        #c17d00 100%
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
 
@@ -480,6 +537,27 @@ body{
     .workshop-details b{
         letter-spacing:0.3px;
     }
+
+    .profile-section{
+        width:92%;
+        margin:24px auto 60px;
+        padding:24px 18px;
+    }
+
+    .profile-title{
+        font-size:24px;
+    }
+
+    .profile-text{
+        font-size:14px;
+        line-height:1.75;
+    }
+
+    .profile-block b{
+        font-size:16px;
+    }
+
+
 }
     
 
@@ -695,6 +773,118 @@ body{
             </div>
         </div>
     </div>
+</div>
+
+<section class="profile-section">
+
+    <div class="profile-title">FOUNDER PROFILE</div>
+
+    <div class="profile-text">
+
+        <p>
+            Building a next-generation media technology studio within the heart of Abu Dhabi’s
+            <strong>twofour54 Media Zone</strong>. We are building a <b>"Sovereign Media Ecosystem"</b> — merging
+            Cinematic Intelligence, Consumer Tech, and National Values.
+        </p>
+
+        <p>
+            Leading the vision for <b>"Cinematic Intelligence"</b> — combining proprietary AI pipelines with
+            high-level human creative direction to produce asset-backed intellectual properties for the global economy.
+        </p>
+
+        <div class="profile-block">
+            <b>🚀 1. Sovereign Production Slate</b>
+            <p>
+                Executive producing a three-film Sovereign Slate including the flagship saga
+                <i>“Rahid: The Seeker of Dune.”</i>
+                This production pipeline merges Hybrid Generative AI, High-Fidelity 3D Animation,
+                and AI-driven VFX to deliver premium cinematic output with scalable economics.
+            </p>
+        </div>
+
+        <div class="profile-block">
+            <b>📱 2. Consumer AI Technology — Project Raqi</b>
+            <p>
+                Developing <b>“Raqi”</b>, a personalized AI styling web application engineered for
+                Emirati consumers. The system combines computer vision with cultural fashion
+                intelligence to redefine the regional digital retail experience.
+            </p>
+        </div>
+
+        <div class="profile-block">
+            <b>🇦🇪 3. National Values & EdTech</b>
+            <p>
+                Architecting the <b>Resilience & Values Program</b>, a scalable digital curriculum
+                for schools integrating sovereign moral frameworks with interactive media to
+                cultivate future-ready values in the next generation.
+            </p>
+        </div>
+
+        <div class="profile-block">
+            <b>🔒 4. Deep Tech Infrastructure</b>
+            <p>
+                Pioneering the integration of <b>Quantum Computing Security protocols</b> for media
+                asset management to ensure the highest level of IP protection and data sovereignty.
+            </p>
+        </div>
+
+        <div class="profile-block">
+            <b>🏆 Key Achievement</b>
+            <p>
+                Directed and produced <i>“The Secret Life of Wheelchair”</i>, an AI-animated short
+                film awarded <b>13 International Awards</b> for innovation in storytelling and
+                emerging cinematic technology.
+            </p>
+        </div>
+
+        <div class="profile-block">
+            <b>🏆 Academic & Professional Certifications</b>
+            <p>
+        <ul>
+
+            <li>
+            <b>Applied Generative AI Specialization — Purdue University</b><br>
+            Professional certification program covering generative AI workflows, prompt engineering, and real-world AI implementation strategies.
+            </li>
+
+            <li>
+            <b>IBM AI Developer Specialization — IBM</b><br>
+            Training focused on Python-based AI development, machine learning workflows, and AI engineering fundamentals.
+            </li>
+
+            <li>
+            <b>Professional Certificate Program in Blockchain — IIT Kanpur</b><br>
+            Executive training covering blockchain infrastructure, decentralized systems, and Web3 technology architecture.
+            </li>
+
+            <li>
+            <b>Blockchain Revolution — INSEAD</b><br>
+            Executive certification exploring blockchain transformation across financial systems, supply chains, and digital trust frameworks.
+            </li>
+
+            <li>
+            <b>Generative AI and Blockchain — INSEAD</b><br>
+            Specialization examining the intersection of artificial intelligence, decentralized technologies, and emerging digital economies.
+            </li>
+
+            <li>
+            <b>Certified Public Accountant — CPA Australia</b><br>
+            Professional qualification in financial strategy, corporate governance, and international accounting standards.
+            </li>
+
+            <li>
+            <b>Computer Science for Web Programming — Harvard University (in progress)</b><br>
+            Coursework covering Python, HTML, CSS, JavaScript, and modern web architecture.
+            </li>
+
+        </ul>
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- JAVASCRIPT TO OPEN AND CLOSE THE POPUP -->
 <script>
